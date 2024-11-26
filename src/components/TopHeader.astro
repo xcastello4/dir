@@ -1,0 +1,163 @@
+---
+const LANGS = [
+    {
+        id: 1,
+        lang: "Catalan",
+        code: 'es-ct'
+    },
+    {
+        id: 2,
+        lang: "Español",
+        code: 'es'
+    },
+    {
+        id: 3,
+        lang: "English (US)",
+        code: 'usa'
+    },
+    {
+        id: 4,
+        lang: "Deutsch",
+        code: 'de'
+    },
+    {
+        id: 5,
+        lang: "Italiano",
+        code: 'it'
+    },
+    {
+        id: 6,
+        lang: "中文 (繁體)",
+        code: 'ch'
+    }
+]
+---
+<div class="w-full bg-[#151515] h-8 top-header">
+    <div class="container mx-auto flex justify-between items-center gap-3 h-full">
+        <div class="flex justify-start items-center gap-3 divide-x-2">
+            <p class="text-white text-sm"><a href="#franquicies">Franquícies</a></p>
+            <p class="text-white text-sm pl-2"><a href="#inversions">Inversions</a></p>
+            <p class="text-white text-sm pl-2"><a href="#empreses">DiR per a empreses</a></p>
+            <p class="text-white text-sm pl-2"><a href="#prestige">Club prestige</a></p>
+            <p class="text-white text-sm pl-2"><a href="#patrocinis">Patrocinis</a></p>
+            <p class="text-white text-sm pl-2"><a href="#ajuda">Ajuda</a></p>
+            <p class="text-white text-sm pl-2"><a href="#login">Connectar-se</a></p>
+            <p class="text-white text-sm pl-2"><a href="#singin">Registrar-se</a></p>
+            <p class="text-white font-bold text-sm pl-2"><a href="#trucar">Truca'm ara</a></p>
+        </div>
+        <div class="relative h-full">
+            <button type="button" class="profile inline-flex items-center font-medium justify-center px-4 h-full text-sm text-gray-900 dark:text-white cursor-pointer hover:bg-[#0075c9] dark:hover:bg-[#0075c9] focus:bg-[#0075c9] dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-es-ct" class="h-3.5 w-3.5 rounded-full me-2" viewBox="0 0 512 512">
+                    <path fill="#fcdd09" d="M0 0h512v512H0z"/>
+                    <path stroke="#da121a" stroke-width="60" d="M0 90h810m0 120H0m0 120h810m0 120H0" transform="scale(.6321 .94815)"/>
+                </svg>                  
+                Catalan
+            </button>
+            <!-- Dropdown -->
+            <div class="dropdown__wrapper hide dropdown__wrapper--fade-in none z-[9999] bg-[#151515]">
+                <ul class="py-2 font-medium" role="none">
+                    {LANGS.map((lang) => (
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#0075c9] dark:text-gray-400 dark:hover:bg-[#0075c9] dark:hover:text-white" role="menuitem">
+                            <div class="inline-flex items-center">
+                                <img class="h-3.5 w-3.5 rounded-full me-2" src={`/svg/flags/${lang.code}.svg`} title={lang.lang} />
+                                {lang.lang}
+                            </div>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dropdown__wrapper {
+        width: 240px;
+        top: 35px;
+        right: 0;
+        position: absolute;
+        border-radius: 8px;
+        border: 1px solid #0075c9;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        animation: fadeOutAnimation ease-in-out 0.3s forwards;
+    }
+
+    .dropdown__wrapper--fade-in {
+        animation: fadeInAnimation ease-in-out 0.3s forwards;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .hide {
+        opacity: 0;
+        visibility: hidden;
+        animation: fadeOutAnimation ease-in-out 0.3s forwards;
+    }
+
+
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+            width: 160px;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+            width: 240px;
+        }
+    }
+
+    @keyframes fadeOutAnimation {
+        0% {
+            opacity: 1;
+            width: 240px;
+            visibility: visible;
+        }
+        100% {
+            opacity: 0;
+            width: 160px;
+            visibility: hidden;
+        }
+    }
+</style>
+
+<script>
+    
+    const profile = document.querySelector('.profile');
+    const dropdown = document.querySelector('.dropdown__wrapper');
+    if (profile && dropdown){
+        profile.addEventListener('click', () => {
+            dropdown.classList.remove('none');
+            dropdown.classList.toggle('hide');
+        })
+    }
+
+
+    document.addEventListener("click", (event) => {
+        if (profile && dropdown) {
+            const isClickInsideDropdown = dropdown.contains(event.target as Node);
+            const isProfileClicked = profile.contains(event.target as Node);
+
+            if (!isClickInsideDropdown && !isProfileClicked && dropdown) {
+                dropdown.classList.add('hide');
+                dropdown.classList.add('dropdown__wrapper--fade-in');
+            }
+        }
+
+        
+    });
+
+</script>

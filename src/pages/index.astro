@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BigHero from '../components/BigHero.astro';
+import Statistic from '../components/Statistic.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+
+const singlesFriends = {
+	imgUrl: '/svg/dir-singles-friends.svg',
+	title: 'DiR Singles & Friends',
+	content: [
+		"¿Te has parado a pensar en todo lo que tienes en común con las personas que, como tú, vienen al DiR?",
+		"¡Da el paso y compruébalo de la forma más auténtica y divertida!",
+		"DiR Singles&Friends es una comunidad para todas aquellas personas socias del DiR con ganas de conocer a gente activa, saludable y, en definitiva, con un estilo de vida similar... fuera del gimnasio."
+	],
+	playUrl: "#",
+	storeUrl: "#"
+}
+---
+
+<Layout title="Gimnasos DiR">
+	<main>
+		<BigHero />
+		<Statistic />
+		<Hero {...singlesFriends} />
+		<Features />
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+	}
+</style>

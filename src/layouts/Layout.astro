@@ -1,0 +1,73 @@
+---
+// Supports weights 100-900
+import '@fontsource-variable/montserrat';
+import TopHeader from '../components/TopHeader.astro';
+import Header from '../components/Header.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<TopHeader />
+		<Header />
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--primary: #0075c9;
+		--primary-hover: #ffffff;
+        --primary-dark: #37996B;
+        --primary-darker: #317F5A;
+		--nav-items: #000000;
+        --text: #F9F9F9;
+        --background: #1C1C1C;
+        --secondary: #2E2E2E;
+        --gray-border: #3E3E3E;
+        --gray-border-hover: #505050;
+        --gray-menu-button: #7E7E7E;
+        --gray-menu-button-hover: #232323;
+        --navbar-height: 4rem;
+        --gray-text-hover: #8F8F8F;
+        --gray-icon: #A0A0A0;
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: 'Montserrat Variable', sans-serif;
+		/* background: #13151a; */
+		/* background-size: 224px; */
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
