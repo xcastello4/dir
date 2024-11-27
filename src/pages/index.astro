@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BigHero from '../components/BigHero.astro';
-import Statistic from '../components/Statistic.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
+import Centros from '@/components/Centros.astro';
 
 const singlesFriends = {
-  imgUrl: '/svg/dir-singles-friends.svg',
+  imgUrl: '/app-image-2.jpg',
   title: 'DiR Singles & Friends',
   content: [
     '¿Te has parado a pensar en todo lo que tienes en común con las personas que, como tú, vienen al DiR?',
@@ -21,9 +21,9 @@ const singlesFriends = {
 <Layout title="Gimnasos DiR">
   <main>
     <BigHero />
-    <Statistic />
-    <Hero {...singlesFriends} />
     <Features />
+    <Hero {...singlesFriends} />
+    <Centros />
   </main>
 </Layout>
 

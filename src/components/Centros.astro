@@ -1,0 +1,99 @@
+---
+const clubs = [
+  {
+    name: 'DiR Tuset',
+    address: 'Carrer de Tuset, 13, 08006 Barcelona',
+    phone: '932 00 00 00',
+    schedule: 'De lunes a viernes de 7:00 a 22:00',
+    new: false,
+  },
+  {
+    name: 'DiR Claris',
+    address: 'Carrer de Casp, 33, 08010 Barcelona',
+    phone: '932 00 00 00',
+    schedule: 'De lunes a viernes de 7:00 a 22:00',
+    new: true,
+  },
+  {
+    name: 'DiR Maragall',
+    address: 'Carrer de la Mare de Déu de la Salut, 83, 08024 Barcelona',
+    phone: '932 00 00 00',
+    schedule: 'De lunes a viernes de 7:00 a 22:00',
+    new: false,
+  },
+  {
+    name: 'DiR Castillejos',
+    address: 'Carrer de Castillejos, 262, 08013 Barcelona',
+    phone: '932 00 00 00',
+    schedule: 'De lunes a viernes de 7:00 a 22:00',
+    new: false,
+  },
+];
+---
+
+<section class="py-24 bg-gray-50 dark:bg-neutral-900">
+  <div class="container mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Encuentra tu club más cercano
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-white">
+        Elige entre más de 90 clubes
+      </p>
+    </div>
+    <div class="flex justify-between items-center gap-3">
+      <div class="w-full sm:w-1/2">
+        <form class="flex gap-1 mx-auto">
+          <label for="postal-code" class="sr-only"
+            >Introduce tu código postal</label
+          >
+          <input
+            type="text"
+            placeholder="Introduce tu código postal"
+            class="w-full flex-1 p-2 rounded-lg border border-gray-300 dark:border-neutral-700 focus:outline-none focus:border-[#0075c9]"
+          />
+          <button class="bg-[#0075c9] text-white px-3 py-2 rounded-lg">
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
+            </svg>
+            <span class="sr-only">Search</span>
+          </button>
+        </form>
+        {
+          clubs.map((club, index) => (
+            <div
+              class="bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg mt-8 relative"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              {club.new && (
+                <span class="bg-[#0075c9] text-white px-2 py-1 rounded-md text-xs absolute -top-3 right-3">
+                  Apertura próximamente
+                </span>
+              )}
+              <h3 class="text-xl font-semibold mb-2 dark:text-white">
+                {club.name}
+              </h3>
+              <p class="text-gray-600 dark:text-white">{club.address}</p>
+              <p class="text-gray-600 dark:text-white">{club.phone}</p>
+              <p class="text-gray-600 dark:text-white">{club.schedule}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="w-full sm:w-1/2">Aqui el mapa</div>
+    </div>
+  </div>
+</section>

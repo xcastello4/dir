@@ -1,6 +1,10 @@
+---
+import ThemeToggle from '@/components/ThemeToggle.astro';
+---
+
 <header
   id="main-header"
-  class="header z-[1000] flex justify-center items-center w-full bg-white"
+  class="header z-[1000] flex justify-center items-center w-full bg-white dark:bg-neutral-800"
 >
   <div class="flex justify-between items-center gap-2 w-full container">
     <div class="menu__bar">
@@ -10,7 +14,7 @@
       <nav>
         <ul class="navigation hide">
           <li>
-            <button type="button">
+            <button type="button" class="text-neutral-900 dark:text-white">
               Gimnasos
               <svg
                 aria-hidden="true"
@@ -18,6 +22,8 @@
                 viewBox="0 0 16 16"
                 version="1.1"
                 width="16"
+                class="text-neutral-900 dark:text-white"
+                fill="none"
               >
                 <path
                   d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"
@@ -166,27 +172,64 @@
                 </ul>
               </div>
               <li>
-                <a href="#fitness" title="Fitness"> Fitness </a>
+                <a
+                  href="#fitness"
+                  title="Fitness"
+                  class="text-neutral-900 dark:text-white"
+                >
+                  Fitness
+                </a>
               </li>
               <li>
-                <a href="#serveis" title="Serveis"> Serveis </a>
+                <a
+                  href="#serveis"
+                  title="Serveis"
+                  class="text-neutral-900 dark:text-white"
+                >
+                  Serveis
+                </a>
               </li>
               <li>
-                <a href="#esdevenimets" title="Esdevenimets"> Esdevenimets </a>
+                <a
+                  href="#esdevenimets"
+                  title="Esdevenimets"
+                  class="text-neutral-900 dark:text-white"
+                >
+                  Esdevenimets
+                </a>
               </li>
               <li>
-                <a href="#clients" title="Clients DiR"> Clients DiR </a>
+                <a
+                  href="#clients"
+                  title="Clients DiR"
+                  class="text-neutral-900 dark:text-white"
+                >
+                  Clients DiR
+                </a>
               </li>
               <li>
-                <a href="#clients" title="Clients DiR"> Revista </a>
+                <a
+                  href="#clients"
+                  title="Clients DiR"
+                  class="text-neutral-900 dark:text-white"
+                >
+                  Revista
+                </a>
               </li>
               <li>
-                <a href="#blog" title="Blog"> Blog </a>
+                <a
+                  href="#blog"
+                  title="Blog"
+                  class="text-neutral-900 dark:text-white"
+                >
+                  Blog
+                </a>
               </li>
             </div>
           </li>
         </ul>
-        <div class="action-buttons hide">
+        <div class="action-buttons hide flex justify-center items-center gap-2">
+          <ThemeToggle />
           <a
             href="#alta"
             title="Dona't d'alta"
@@ -288,7 +331,6 @@
       }
 
       .navigation > li > a {
-        color: var(--nav-items);
         font-size: 14px;
         font-weight: 600;
         text-decoration: none;
@@ -299,7 +341,6 @@
       }
 
       .navigation > li > button {
-        color: var(--nav-items);
         transition: all 0.3s ease;
         text-decoration: none;
         border: none;
@@ -312,7 +353,6 @@
         gap: 0.25rem;
         font-weight: 600;
         flex-wrap: nowrap;
-        /* padding: 0.25rem 0.7rem; */
         white-space: nowrap;
         background: none;
         display: flex;

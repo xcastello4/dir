@@ -1,34 +1,43 @@
 ---
+import GymWorkout from '@/components/icons/GymWorkout.astro';
+import TrainingGym from '@/components/icons/TrainingGym.astro';
+import Pool from '@/components/icons/Pool.astro';
+import PadelCourt from '@/components/icons/PadelCourt.astro';
+
 const features = [
   {
-    title: 'State-of-the-art Equipment',
-    description: 'Access to premium fitness equipment and modern facilities',
-    icon: '💪',
+    title: 'Activitats dirigides al mes',
+    description:
+      'Más de 25.000 actividades dirigidas al mes para todos los niveles.',
+    icon: TrainingGym,
   },
   {
-    title: 'Expert Trainers',
-    description: 'Professional guidance from certified fitness experts',
-    icon: '👥',
+    title: 'Tu gimnasio muy cerca de ti',
+    description: 'Contamos con más 20 clubs en Barcelona y alrededores.',
+    icon: GymWorkout,
   },
   {
-    title: 'Diverse Classes',
-    description: 'Wide range of group fitness classes for all levels',
-    icon: '🎯',
+    title: 'Piscines i espais termolúdics',
+    description:
+      'Disponemos de piscinas y espacios termolúdicos para tu relax y bienestar.',
+    icon: Pool,
   },
   {
-    title: 'Wellness Programs',
-    description: 'Comprehensive programs for total well-being',
-    icon: '🌟',
+    title: 'Pistas de pàdel indoor i outdoor',
+    description: 'Disfruta de nuestras pistas de pádel de última generación.',
+    icon: PadelCourt,
   },
 ];
 ---
 
-<section class="py-24 bg-gray-50">
+<section class="py-24 bg-gray-50 dark:bg-neutral-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose DiR</h2>
-      <p class="text-xl text-gray-600">
-        Experience fitness excellence with our premium features
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        La experiencia <span class="text-[#0075c9]">DiR</span>
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-white">
+        Experimenta la excelencia del fitness con nosotros y alcanza tus metas
       </p>
     </div>
 
@@ -36,13 +45,17 @@ const features = [
       {
         features.map((feature, index) => (
           <div
-            class="bg-white p-8 rounded-lg shadow-lg"
+            class="bg-white dark:bg-neutral-800 p-8 rounded-lg shadow-lg"
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            <div class="text-4xl mb-4">{feature.icon}</div>
-            <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p class="text-gray-600">{feature.description}</p>
+            <div class="text-4xl mb-4">
+              <feature.icon class="size-12" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 dark:text-white">
+              {feature.title}
+            </h3>
+            <p class="text-gray-600 dark:text-white">{feature.description}</p>
           </div>
         ))
       }
